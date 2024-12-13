@@ -1,0 +1,309 @@
+make: “combine”是最新的。
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+20218 events for dssd
+14627 events for beta_dssd
+5591 events for beam_dssd
+7623 events for bigrips
+18736 events for gamma
+nentries = 18685 for dssd x gamma,92% of dssd in run=3070
+nentries = 5187 for dssd x bigrips,25% of dssd in run=3070
+fake events:404
+
+
+***************************combine 3070 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+910892 events for dssd
+696713 events for beta_dssd
+214179 events for beam_dssd
+249891 events for bigrips
+910416 events for gamma
+nentries = 909190 for dssd x gamma,99% of dssd in run=3071
+nentries = 213630 for dssd x bigrips,23% of dssd in run=3071
+fake events:581
+
+
+***************************combine 3071 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+786791 events for dssd
+609664 events for beta_dssd
+177127 events for beam_dssd
+207280 events for bigrips
+784416 events for gamma
+nentries = 783349 for dssd x gamma,99% of dssd in run=3072
+nentries = 176628 for dssd x bigrips,22% of dssd in run=3072
+fake events:527
+
+
+***************************combine 3072 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+673380 events for dssd
+526072 events for beta_dssd
+147308 events for beam_dssd
+170526 events for bigrips
+674160 events for gamma
+nentries = 672458 for dssd x gamma,99% of dssd in run=3073
+nentries = 146594 for dssd x bigrips,21% of dssd in run=3073
+fake events:732
+
+
+***************************combine 3073 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+768788 events for dssd
+601362 events for beta_dssd
+167426 events for beam_dssd
+193973 events for bigrips
+767936 events for gamma
+nentries = 766887 for dssd x gamma,99% of dssd in run=3074
+nentries = 166986 for dssd x bigrips,21% of dssd in run=3074
+fake events:464
+
+
+***************************combine 3074 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+787043 events for dssd
+617158 events for beta_dssd
+169885 events for beam_dssd
+196679 events for bigrips
+784720 events for gamma
+nentries = 783647 for dssd x gamma,99% of dssd in run=3075
+nentries = 169503 for dssd x bigrips,21% of dssd in run=3075
+fake events:406
+
+
+***************************combine 3075 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+740935 events for dssd
+575758 events for beta_dssd
+165177 events for beam_dssd
+191461 events for bigrips
+740784 events for gamma
+nentries = 739808 for dssd x gamma,99% of dssd in run=3076
+nentries = 164825 for dssd x bigrips,22% of dssd in run=3076
+fake events:384
+
+
+***************************combine 3076 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+832462 events for dssd
+648160 events for beta_dssd
+184302 events for beam_dssd
+215621 events for bigrips
+832240 events for gamma
+nentries = 831236 for dssd x gamma,99% of dssd in run=3077
+nentries = 183839 for dssd x bigrips,22% of dssd in run=3077
+fake events:475
+
+
+***************************combine 3077 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+592432 events for dssd
+463987 events for beta_dssd
+128445 events for beam_dssd
+150053 events for bigrips
+592768 events for gamma
+nentries = 592047 for dssd x gamma,99% of dssd in run=3078
+nentries = 128105 for dssd x bigrips,21% of dssd in run=3078
+fake events:354
+
+
+***************************combine 3078 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+734346 events for dssd
+572527 events for beta_dssd
+161819 events for beam_dssd
+187933 events for bigrips
+734496 events for gamma
+nentries = 733511 for dssd x gamma,99% of dssd in run=3079
+nentries = 161460 for dssd x bigrips,21% of dssd in run=3079
+fake events:395
+
+
+***************************combine 3079 done!****************************
+
+Warning in <TClass::Init>: no dictionary for class TArtEventInfo is available
+Warning in <TClass::Init>: no dictionary for class TEURICAUnpackEvent is available
+Warning in <TClass::Init>: no dictionary for class TGo4EventElement is available
+Warning in <TClass::Init>: no dictionary for class TArtGeCluster is available
+Warning in <TClass::Init>: no dictionary for class TArtDataObject is available
+Warning in <TClass::Init>: no dictionary for class TArtBigRIPSEURICA is available
+Warning in <TClass::Init>: no dictionary for class TArtPPAC is available
+Warning in <TClass::Init>: no dictionary for class TArtPlastic is available
+Warning in <TClass::Init>: no dictionary for class TArtIC is available
+Warning in <TClass::Init>: no dictionary for class TArtFocalPlane is available
+Warning in <TClass::Init>: no dictionary for class TArtTOF is available
+Warning in <TClass::Init>: no dictionary for class TArtRIPS is available
+Warning in <TClass::Init>: no dictionary for class TArtBeam is available
+complete ts mapping for DSSD
+complete ts mapping for Eurica
+complete ts mapping for BigRIPS
+748697 events for dssd
+591852 events for beta_dssd
+156845 events for beam_dssd
+181841 events for bigrips
+748928 events for gamma
+nentries = 747868 for dssd x gamma,99% of dssd in run=3080
+nentries = 156439 for dssd x bigrips,20% of dssd in run=3080
+fake events:424
+
+
+***************************combine 3080 done!****************************
+

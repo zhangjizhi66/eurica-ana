@@ -1,0 +1,104 @@
+make: “builddecay”是最新的。
+start building time table for decay and beam in run=3090
+621683 events for beta_dssd
+50434 events for beam_dssd
+
+
+********************************builddecay 3090 done!********************************************
+
+start building time table for decay and beam in run=3091
+700321 events for beta_dssd
+176684 events for beam_dssd
+
+
+********************************builddecay 3091 done!********************************************
+
+start building time table for decay and beam in run=3092
+675403 events for beta_dssd
+167377 events for beam_dssd
+
+
+********************************builddecay 3092 done!********************************************
+
+start building time table for decay and beam in run=3093
+706887 events for beta_dssd
+172460 events for beam_dssd
+
+
+********************************builddecay 3093 done!********************************************
+
+start building time table for decay and beam in run=3094
+740651 events for beta_dssd
+182554 events for beam_dssd
+
+
+********************************builddecay 3094 done!********************************************
+
+start building time table for decay and beam in run=3095
+629281 events for beta_dssd
+153612 events for beam_dssd
+
+
+********************************builddecay 3095 done!********************************************
+
+start building time table for decay and beam in run=3096
+714598 events for beta_dssd
+174685 events for beam_dssd
+
+
+********************************builddecay 3096 done!********************************************
+
+start building time table for decay and beam in run=3097
+659948 events for beta_dssd
+158864 events for beam_dssd
+
+
+********************************builddecay 3097 done!********************************************
+
+start building time table for decay and beam in run=3098
+650383 events for beta_dssd
+159259 events for beam_dssd
+
+
+********************************builddecay 3098 done!********************************************
+
+start building time table for decay and beam in run=3099
+764518 events for beta_dssd
+188153 events for beam_dssd
+
+
+********************************builddecay 3099 done!********************************************
+
+start building time table for decay and beam in run=3100
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x00007fb6dd70e41c in waitpid () from /lib64/libc.so.6
+#1  0x00007fb6dd68bf12 in do_system () from /lib64/libc.so.6
+#2  0x00007fb6e2e49371 in Exec (shellcmd=<optimized out>, this=<optimized out>) at /home/wuhongyi/root-6.16.00/core/unix/src/TUnixSystem.cxx:2119
+#3  TUnixSystem::StackTrace (this=0xa5c8f0) at /home/wuhongyi/root-6.16.00/core/unix/src/TUnixSystem.cxx:2413
+#4  0x00007fb6e2e4b984 in TUnixSystem::DispatchSignals (this=0xa5c8f0, sig=kSigSegmentationViolation) at /home/wuhongyi/root-6.16.00/core/unix/src/TUnixSystem.cxx:3644
+#5  <signal handler called>
+#6  0x0000000000404a59 in decay::GetTsEntry(std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&, std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&) ()
+#7  0x00000000004024da in main ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+You may get help by asking at the ROOT forum http://root.cern.ch/forum
+Only if you are really convinced it is a bug in ROOT then please submit a
+report at http://root.cern.ch/bugs Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#6  0x0000000000404a59 in decay::GetTsEntry(std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&, std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&) ()
+#7  0x00000000004024da in main ()
+===========================================================
+
+

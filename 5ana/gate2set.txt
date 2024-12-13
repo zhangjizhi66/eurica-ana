@@ -1,0 +1,12 @@
+#### Gate2 initial settings ####
+#rootfile    root/g2matrix_bgsub.root
+#rootfile    root/gpdmatrix_raw.root
+rootfile    root/bbmatrix_raw.root
+#rootfile    root/ddmatrix.root
+histname    hg2xyp hg2xy hg2xyb
+ncanvas     5            
+xmin       0
+xmax       3500         
+npeaks      30                
+dge        2
+opencross    2

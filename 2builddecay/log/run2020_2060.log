@@ -1,0 +1,331 @@
+make: `builddecay' is up to date.
+start building time table for decay and beam in run=2020
+303393 events for beta_dssd
+84505 events for beam_dssd
+
+
+********************************builddecay 2020 done!********************************************
+
+start building time table for decay and beam in run=2021
+156710 events for beta_dssd
+40830 events for beam_dssd
+
+
+********************************builddecay 2021 done!********************************************
+
+start building time table for decay and beam in run=2022
+359212 events for beta_dssd
+100979 events for beam_dssd
+
+
+********************************builddecay 2022 done!********************************************
+
+start building time table for decay and beam in run=2023
+301253 events for beta_dssd
+83394 events for beam_dssd
+
+
+********************************builddecay 2023 done!********************************************
+
+start building time table for decay and beam in run=2024
+249435 events for beta_dssd
+68820 events for beam_dssd
+
+
+********************************builddecay 2024 done!********************************************
+
+start building time table for decay and beam in run=2025
+393579 events for beta_dssd
+110135 events for beam_dssd
+
+
+********************************builddecay 2025 done!********************************************
+
+start building time table for decay and beam in run=2026
+375594 events for beta_dssd
+104637 events for beam_dssd
+
+
+********************************builddecay 2026 done!********************************************
+
+start building time table for decay and beam in run=2027
+339082 events for beta_dssd
+92647 events for beam_dssd
+
+
+********************************builddecay 2027 done!********************************************
+
+start building time table for decay and beam in run=2028
+312644 events for beta_dssd
+87540 events for beam_dssd
+
+
+********************************builddecay 2028 done!********************************************
+
+start building time table for decay and beam in run=2029
+360790 events for beta_dssd
+101525 events for beam_dssd
+
+
+********************************builddecay 2029 done!********************************************
+
+start building time table for decay and beam in run=2030
+364074 events for beta_dssd
+105178 events for beam_dssd
+
+
+********************************builddecay 2030 done!********************************************
+
+start building time table for decay and beam in run=2031
+300089 events for beta_dssd
+84096 events for beam_dssd
+
+
+********************************builddecay 2031 done!********************************************
+
+start building time table for decay and beam in run=2032
+293186 events for beta_dssd
+84012 events for beam_dssd
+
+
+********************************builddecay 2032 done!********************************************
+
+start building time table for decay and beam in run=2033
+302987 events for beta_dssd
+86698 events for beam_dssd
+
+
+********************************builddecay 2033 done!********************************************
+
+start building time table for decay and beam in run=2034
+246562 events for beta_dssd
+67963 events for beam_dssd
+
+
+********************************builddecay 2034 done!********************************************
+
+start building time table for decay and beam in run=2036
+396599 events for beta_dssd
+91760 events for beam_dssd
+
+
+********************************builddecay 2036 done!********************************************
+
+start building time table for decay and beam in run=2037
+402976 events for beta_dssd
+89918 events for beam_dssd
+
+
+********************************builddecay 2037 done!********************************************
+
+start building time table for decay and beam in run=2038
+429906 events for beta_dssd
+94700 events for beam_dssd
+
+
+********************************builddecay 2038 done!********************************************
+
+start building time table for decay and beam in run=2039
+183264 events for beta_dssd
+38120 events for beam_dssd
+
+
+********************************builddecay 2039 done!********************************************
+
+start building time table for decay and beam in run=2040
+460649 events for beta_dssd
+103455 events for beam_dssd
+
+
+********************************builddecay 2040 done!********************************************
+
+start building time table for decay and beam in run=2041
+443009 events for beta_dssd
+96523 events for beam_dssd
+
+
+********************************builddecay 2041 done!********************************************
+
+start building time table for decay and beam in run=2042
+373989 events for beta_dssd
+78048 events for beam_dssd
+
+
+********************************builddecay 2042 done!********************************************
+
+start building time table for decay and beam in run=2043
+449702 events for beta_dssd
+98930 events for beam_dssd
+
+
+********************************builddecay 2043 done!********************************************
+
+start building time table for decay and beam in run=2044
+411761 events for beta_dssd
+87261 events for beam_dssd
+
+
+********************************builddecay 2044 done!********************************************
+
+start building time table for decay and beam in run=2045
+506651 events for beta_dssd
+109765 events for beam_dssd
+
+
+********************************builddecay 2045 done!********************************************
+
+start building time table for decay and beam in run=2046
+462674 events for beta_dssd
+100343 events for beam_dssd
+
+
+********************************builddecay 2046 done!********************************************
+
+start building time table for decay and beam in run=2047
+435640 events for beta_dssd
+95970 events for beam_dssd
+
+
+********************************builddecay 2047 done!********************************************
+
+start building time table for decay and beam in run=2048
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x00007ff65cda141c in waitpid () from /lib64/libc.so.6
+#1  0x00007ff65cd1ef12 in do_system () from /lib64/libc.so.6
+#2  0x00007ff66249a791 in TUnixSystem::StackTrace() () from /opt/ROOT/root62006/lib/libCore.so
+#3  0x00007ff66249cda4 in TUnixSystem::DispatchSignals(ESignals) () from /opt/ROOT/root62006/lib/libCore.so
+#4  <signal handler called>
+#5  0x0000000000404b09 in decay::GetTsEntry(std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&, std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&) ()
+#6  0x000000000040248a in main ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+You may get help by asking at the ROOT forum http://root.cern.ch/forum
+Only if you are really convinced it is a bug in ROOT then please submit a
+report at http://root.cern.ch/bugs Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x0000000000404b09 in decay::GetTsEntry(std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&, std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&) ()
+#6  0x000000000040248a in main ()
+===========================================================
+
+
+start building time table for decay and beam in run=2049
+471284 events for beta_dssd
+100960 events for beam_dssd
+
+
+********************************builddecay 2049 done!********************************************
+
+start building time table for decay and beam in run=2050
+473721 events for beta_dssd
+102210 events for beam_dssd
+
+
+********************************builddecay 2050 done!********************************************
+
+start building time table for decay and beam in run=2051
+439620 events for beta_dssd
+97011 events for beam_dssd
+
+
+********************************builddecay 2051 done!********************************************
+
+start building time table for decay and beam in run=2052
+
+ *** Break *** segmentation violation
+
+
+
+===========================================================
+There was a crash.
+This is the entire stack trace of all threads:
+===========================================================
+#0  0x00007f4d71dad41c in waitpid () from /lib64/libc.so.6
+#1  0x00007f4d71d2af12 in do_system () from /lib64/libc.so.6
+#2  0x00007f4d774a6791 in TUnixSystem::StackTrace() () from /opt/ROOT/root62006/lib/libCore.so
+#3  0x00007f4d774a8da4 in TUnixSystem::DispatchSignals(ESignals) () from /opt/ROOT/root62006/lib/libCore.so
+#4  <signal handler called>
+#5  0x0000000000404b09 in decay::GetTsEntry(std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&, std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&) ()
+#6  0x000000000040248a in main ()
+===========================================================
+
+
+The lines below might hint at the cause of the crash.
+You may get help by asking at the ROOT forum http://root.cern.ch/forum
+Only if you are really convinced it is a bug in ROOT then please submit a
+report at http://root.cern.ch/bugs Please post the ENTIRE stack trace
+from above as an attachment in addition to anything else
+that might help us fixing this issue.
+===========================================================
+#5  0x0000000000404b09 in decay::GetTsEntry(std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&, std::map<long long, long long, std::less<long long>, std::allocator<std::pair<long long const, long long> > >&) ()
+#6  0x000000000040248a in main ()
+===========================================================
+
+
+start building time table for decay and beam in run=2053
+351406 events for beta_dssd
+74180 events for beam_dssd
+
+
+********************************builddecay 2053 done!********************************************
+
+start building time table for decay and beam in run=2054
+429812 events for beta_dssd
+93600 events for beam_dssd
+
+
+********************************builddecay 2054 done!********************************************
+
+start building time table for decay and beam in run=2055
+272845 events for beta_dssd
+43379 events for beam_dssd
+
+
+********************************builddecay 2055 done!********************************************
+
+start building time table for decay and beam in run=2056
+411565 events for beta_dssd
+92263 events for beam_dssd
+
+
+********************************builddecay 2056 done!********************************************
+
+start building time table for decay and beam in run=2057
+215411 events for beta_dssd
+45499 events for beam_dssd
+
+
+********************************builddecay 2057 done!********************************************
+
+start building time table for decay and beam in run=2058
+410759 events for beta_dssd
+90261 events for beam_dssd
+
+
+********************************builddecay 2058 done!********************************************
+
+start building time table for decay and beam in run=2059
+90746 events for beta_dssd
+19514 events for beam_dssd
+
+
+********************************builddecay 2059 done!********************************************
+
+start building time table for decay and beam in run=2060
+423539 events for beta_dssd
+90755 events for beam_dssd
+
+
+********************************builddecay 2060 done!********************************************
+
