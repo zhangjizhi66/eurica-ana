@@ -27,9 +27,9 @@
 
 int main(int argc, char* argv[]){
 
-   if(argc<3) {
-       std::cout<<"USAGE: "<<argv[0]<<" #RUN Z A"<<std::endl;
-       return 0;
+   if (argc < 3) {
+     std::cout<<"USAGE: "<<argv[0]<<" #RUN Z A"<<std::endl;
+     return 0;
    }
    int zet,mass;
    std::istringstream(argv[2])>>zet;
@@ -40,16 +40,16 @@ int main(int argc, char* argv[]){
    char infile[128];
    char outfile[128];
    TRandom3 r;
-   //sprintf(infile,"../DecayData/decay%d.root",runB);
    sprintf(infile,"../CorrectData/decay%d.root",runB);
    sprintf(outfile,"../SeperateData/decay%02d_%03d_%04d.root",zet,mass,runB);
 
    std::ifstream ifinfile(infile);
-   if(!ifinfile.good()) {
+   if (!ifinfile.good()) {
      std::cout<<"runnum "<<infile<<" does not exist!"<<std::endl;
      return 0;
-   }else
-     { ifinfile.close();}
+   }
+   else
+     ifinfile.close();
     
    TFile *ipf1 = new TFile(infile);
    TTree *ipt1 = (TTree*)ipf1->Get("tree");
@@ -65,12 +65,13 @@ int main(int argc, char* argv[]){
    if (bg.fChain == 0) return 0;
    Long64_t nentries = bg.fChain->GetEntriesFast();
    Long64_t nbytes = 0, nb = 0;
-   for (Long64_t jentry=0; jentry<nentries;jentry++) {
+   for (Long64_t jentry = 0; jentry < nentries; jentry++) {
       Long64_t ientry = bg.fChain->LoadTree(jentry);
       if (ientry < 0) break;
-      nb = bg.fChain->GetEntry(jentry);   nbytes += nb;
+      nb = bg.fChain->GetEntry(jentry);
+      nbytes += nb;
 
-      if(bg.aa==mass&&bg.zz==zet) tree->Fill();
+      if (bg.aa == mass && bg.zz == zet) tree->Fill();
    }
    rootfile->Write();
    rootfile->Close();
