@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [ ! -d "../DecayData" ]; then
   mkdir ../DecayData
 fi

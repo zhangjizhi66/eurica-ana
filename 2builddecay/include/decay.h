@@ -351,49 +351,45 @@ void decay::GetTsEntry(std::map<Long64_t,Long64_t> &mbeta,std::map<Long64_t,Long
 {
    Long64_t nentries = fChain->GetEntriesFast();
    Long64_t nbytes = 0, nb = 0;
-   for(Long64_t jentries=0; jentries<nentries; jentries++){
+   for (Long64_t jentries = 0; jentries < nentries; jentries++){
       Long64_t ientry = LoadTree(jentries);
-      if(ientry<0){
-         break;
-      }
+      if (ientry < 0) break;
       nb = fChain->GetEntry(jentries);
-      nbytes+=nb;
+      nbytes += nb;
 
-      if(ts>0)  mbeta.insert(std::pair<Long64_t,Long64_t> (ts,jentries));
-      if( bts>0 && bz>-1 && bz<8 
-       && bx>-1 && by>-1 && aaoq>2 && zzet>20)
-	mbeam.insert(std::pair<Long64_t,Long64_t> (bts,jentries));
+      if (ts > 0) mbeta.insert(std::pair<Long64_t,Long64_t> (ts,jentries));
+      if (bts > 0 && bz > -1 && bz < 8 && bx > -1 && by > -1 && aaoq > 2 && zzet > 20)
+         mbeam.insert(std::pair<Long64_t,Long64_t> (bts,jentries));
    }
 }
 
 void decay::SyncIonInfo(Long64_t entry)
 {
-
    LoadTree(entry);
    GetEntry(entry);
-  //bigrips 
-   run=zrun; 
-   zts_=zts;
-   aaoq_=aaoq;
-   zzet_=zzet;
-   aa_=aa;
-   zz_=zz;
+    
+   //bigrips 
+   run = zrun; 
+   zts_ = zts;
+   aaoq_ = aaoq;
+   zzet_ = zzet;
+   aa_ = aa;
+   zz_ = zz;
 
-   mas=aa+(ran.Rndm()-0.5)*0.5;
-   chg=zz+(ran.Rndm()-0.5)*0.5;
+   mas = aa + (ran.Rndm()-0.5)*0.5;
+   chg = zz + (ran.Rndm()-0.5)*0.5;
 
    //dssd
-   bx_=bx;
-   by_=by;
-   bz_=bz;   
-   bts_=bts;
-   //cout<<bts_<<" "<<bts<<endl;
+   bx_ = bx;
+   by_ = by;
+   bz_ = bz;   
+   bts_ = bts;
    memcpy(ionx_, ionx, sizeof(ionx));
    memcpy(iony_, iony, sizeof(iony));
 
    //eurica
-   bgts_=bgts;
-   bghit_=bghit;
+   bgts_ = bgts;
+   bghit_ = bghit;
    memcpy(bgid_, bgid, sizeof(bgid));
    memcpy(bgtdcl_, bgtdcl, sizeof(bgtdcl));
    memcpy(bgtdcs_, bgtdcs, sizeof(bgtdcs));
@@ -404,25 +400,25 @@ void decay::SyncIonInfo(Long64_t entry)
 
 void decay::SetDecayInfo(int i,int ibeta1)
 {  
-   z_ =z[i];
-   x_ =x[i];
-   y_ =y[i];
-   ex_=ex[i];
-   ey_=ey[i];
-   x1_=x1[i];
-   y1_=y1[i];
-   x2_=x2[i];
-   y2_=y2[i];
-   tx_=tx[i];
-   ty_=ty[i];
-   delz=abs(bz_-z_);
-   delxy=sqrt((bx_-x_)*(bx_-x_)+(by_-y_)*(by_-y_)+(bz_-z_)*(bz_-z_));
-   eex=dssd_ex[z_];
-   eey=dssd_ey[z_];
-   ee=dssd_E;
-   ibeta=ibeta1;
-   Double_t ms=100*1000;
-   decaytime=(ts-bts_)/ms; 
+   z_  = z[i];
+   x_  = x[i];
+   y_  = y[i];
+   ex_ = ex[i];
+   ey_ = ey[i];
+   x1_ = x1[i];
+   y1_ = y1[i];
+   x2_ = x2[i];
+   y2_ = y2[i];
+   tx_ = tx[i];
+   ty_ = ty[i];
+   delz = abs(bz_-z_);
+   delxy = sqrt((bx_-x_)*(bx_-x_)+(by_-y_)*(by_-y_)+(bz_-z_)*(bz_-z_));
+   eex = dssd_ex[z_];
+   eey = dssd_ey[z_];
+   ee = dssd_E;
+   ibeta = ibeta1;
+   Double_t ms = 100*1000;
+   decaytime = (ts-bts_) / ms; 
 }
 
 
