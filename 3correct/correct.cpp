@@ -30,13 +30,10 @@ combine root files for bigrips and Go4,
 
 int main(int argc, char* argv[])
 {
-   if(argc<1) {
+   if (argc < 1) {
        std::cout<<"USAGE: "<<argv[0]<<" #RUN"<<std::endl;
        return 0;
    }
-   //int zet,mass;
-   //std::istringstream(argv[2])>>zet;
-   //std::istringstream(argv[3])>>mass;
    int runB = atoi(argv[1]);
    std::cout<<"run="<<runB<<'\n';
     
@@ -44,17 +41,16 @@ int main(int argc, char* argv[])
    char infile[128];
    char outfile[128];
 
-   //sprintf(infile,"../SeperateData/decay%02d_%03d_%04d.root",zet,mass,runB);
    sprintf(infile,"../DecayData/decay%d.root",runB);
-   //sprintf(outfile,"../CorrectData/decay%d_%d_%d.root",zet,mass,runB);
    sprintf(outfile,"../CorrectData/decay%d.root",runB);
 
    std::ifstream ifinfile(infile);
-   if(!ifinfile.good()) {
+   if (!ifinfile.good()) {
      std::cout<<"runnum "<<infile<<" does not exist!"<<'\n'<<'\n';
      return 0;
-   }else
-     { ifinfile.close();}
+   }
+   else
+     ifinfile.close();
    
    TFile *ipf1 = new TFile(infile);
    TTree *ipt1 = (TTree*)ipf1->Get("tree");
@@ -71,10 +67,11 @@ int main(int argc, char* argv[])
    if (bga.fChain == 0) return 0;
    Long64_t nentries = bga.fChain->GetEntriesFast();
    Long64_t nbytes = 0, nb = 0;
-   for (Long64_t jentry=0; jentry<nentries;jentry++) {
+   for (Long64_t jentry = 0; jentry < nentries; jentry++) {
       Long64_t ientry = bga.fChain->LoadTree(jentry);
       if (ientry < 0) break;
-      nb = bga.fChain->GetEntry(jentry);   nbytes += nb;
+      nb = bga.fChain->GetEntry(jentry);
+      nbytes += nb;
 
       bga.Correct(jentry);
       tree->Fill();

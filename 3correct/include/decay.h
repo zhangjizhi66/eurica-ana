@@ -174,35 +174,35 @@ void decay::ReadSlew()
    std::ifstream slew("slew_DGF.dat");
    std::string aa;
     
-   for(int i=0;i<12;i++)
-       for(int j=0;j<7;j++) {
-           Int_t i1=0,j1=0;
-           slew >> i1 >> j1 >> p[i][j][0] >> p[i][j][1] >> p[i][j][2] >> p[i][j][3] >> p[i][j][4] >> p[i][j][5];
-       }
+   for (int i = 0; i < 12; i++)
+     for (int j = 0; j < 7; j++) {
+       Int_t i1 = 0, j1 = 0;
+       slew >> i1 >> j1 >> p[i][j][0] >> p[i][j][1] >> p[i][j][2] >> p[i][j][3] >> p[i][j][4] >> p[i][j][5];
+     }
 }
 
 Double_t decay::dt(int id, Double_t ge, Long64_t jentry)
 {
-   int i=id/7;
-   int j=id%7;
-   Double_t dt1=0;
+   int i = id/7;
+   int j = id%7;
+   Double_t dt1 = 0;
     
-   if(ge>1.&&id<1000)
-        dt1=p[i][j][0] + p[i][j][1]/ge + p[i][j][2]/(ge*ge) + p[i][j][3]/(ge*ge*ge)+ p[i][j][4]/(ge*ge*ge*ge) + p[i][j][5]*ge;
+   if (ge > 1. && id < 1000)
+        dt1 = p[i][j][0] + p[i][j][1]/ge + p[i][j][2]/(ge*ge) + p[i][j][3]/(ge*ge*ge)+ p[i][j][4]/(ge*ge*ge*ge) + p[i][j][5]*ge;
     else
-        dt1=0;
+        dt1 = 0;
     
     return 25.*dt1;
 }
 
 void decay::Correct(Long64_t jentry)
 {
-    for(int i=0;i<bghit;i++)
-        if(abs(bgid[i])<1000) bgt[i]+=dt(bgid[i],bge[i],jentry);
-    for(int i=0;i<ghit;i++)
-        if(abs(gid[i])<1000)  gt[i]+=dt(gid[i],ge[i],jentry); 
-    for(int i=0;i<ahit;i++)
-        if(abs(aid[i])<1000)  at[i]+=dt(aid[i],ae[i],jentry);
+   for (int i = 0; i < bghit; i++)
+      if (abs(bgid[i]) < 1000) bgt[i]+=dt(bgid[i],bge[i],jentry);
+   for (int i = 0; i < ghit; i++)
+      if (abs(gid[i]) < 1000) gt[i]+=dt(gid[i],ge[i],jentry); 
+   for (int i = 0; i < ahit; i++)
+      if (abs(aid[i]) < 1000) at[i]+=dt(aid[i],ae[i],jentry);
 }
 
 Int_t decay::GetEntry(Long64_t entry)

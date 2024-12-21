@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [ ! -d "../CorrectData" ]; then
   mkdir ../CorrectData
 fi
