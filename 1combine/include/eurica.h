@@ -632,18 +632,18 @@ void eurica::GetIonInfo(Long64_t entry){
 
 void eurica::ResetDecay()
 {
-  gts=-1;
-  gevt=-1;
-  ghit=0;
-  ahit=0;
+  gts = -1;
+  gevt = -1;
+  ghit = 0;
+  ahit = 0;
 }
 
 void eurica::ResetIon()
 {
-  bgts=-1;
-  bgevt=-1;
-  bghit=0;
-  bahit=0;
+  bgts = -1;
+  bgevt = -1;
+  bghit = 0;
+  bahit = 0;
 }
 
 void eurica::TreeBranch_Decay(TTree *tree)

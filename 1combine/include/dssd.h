@@ -422,20 +422,18 @@ void dssd::GetTsEntry(map<Long64_t,Long64_t> &mts, map<Long64_t,Long64_t> &mtsbe
 {
    Long64_t nentries = fChain->GetEntriesFast();
    Long64_t nbytes = 0, nb = 0;
-   for(Long64_t jentries=0; jentries<nentries; jentries++){
+   for (Long64_t jentries = 0; jentries < nentries; jentries++){
       Long64_t ientry = LoadTree(jentries);
-      if(ientry<0){
+      if (ientry < 0){
          break;
       }
       nb = fChain->GetEntry(jentries);
       nbytes+=nb;
       Long64_t ts=(Long64_t)EventInfo_timestamp[0];
-      //for(int i=0;i<60;i++)
-	//	cout<<EventInfo_timestamp[0]<<" "<<dssd_T_X[3][i][0] <<" "<<dssd_E_X[3][i]<<endl;
-      //     IfBeta(IF_BETA,IF_ION);
-      if(IF_ION || IF_BETA) mts.insert(pair<Long64_t,Long64_t> (ts,jentries));
-      if(IF_BETA)  mtsbeta.insert(pair<Long64_t,Long64_t> (jentries,ts));
-      if(IF_ION)   mtsbeam.insert(pair<Long64_t,Long64_t> (jentries,ts));
+       
+      if (IF_ION || IF_BETA) mts.insert(pair<Long64_t,Long64_t> (ts,jentries));
+      if (IF_BETA)  mtsbeta.insert(pair<Long64_t,Long64_t> (jentries,ts));
+      if (IF_ION)   mtsbeam.insert(pair<Long64_t,Long64_t> (jentries,ts));
    }
    cout<<"complete ts mapping for DSSD"<<endl;
 }
@@ -443,130 +441,123 @@ void dssd::GetTsEntry(map<Long64_t,Long64_t> &mts, map<Long64_t,Long64_t> &mtsbe
 void dssd::BetaGetPos(Int_t &mult, map<Int_t,vector<pair<Int_t,Int_t> > > &beta_event)
 {//mult is the multiplicity of beta event. map(z,vector(pair(x,y))) restore position
    //information of beta decay.
-   mult=0;
-   for(Int_t z=0; z<NumDSSD; z++){
+   mult = 0;
+   for (Int_t z = 0; z < NumDSSD; z++){
       vector<pair<Int_t,Int_t> > beta_dssd;
-      for(Int_t x=0; x<NumStrX; x++){
-         if(dssd_T_X[z][x][0]>-50000 && dssd_E_X[z][x]>10){
-            //cout << "x-strip found" << endl;
-            for(Int_t y=0; y<NumStrY; y++){
-               //cout << dssd_T_Y[z][y][0] << "  " << dssd_E_Y[z][y] <<endl;
-               if(dssd_T_Y[z][y][0]>-50000 && dssd_E_Y[z][y]>10){
-                  //cout << "y-strip found" << endl;
+      for (Int_t x = 0; x < NumStrX; x++){
+         if (dssd_T_X[z][x][0] > -50000 && dssd_E_X[z][x] > 10){
+            for (Int_t y = 0; y < NumStrY; y++){
+               if (dssd_T_Y[z][y][0] > -50000 && dssd_E_Y[z][y] > 10){
                   mult++;
                   beta_dssd.push_back(pair<Int_t,Int_t> (x,y));
                }
             }
          }
       }
-      if(beta_dssd.size()>0){
-         beta_event[z]=beta_dssd;
+      if (beta_dssd.size() > 0){
+         beta_event[z] = beta_dssd;
       }
    }
 }
 
 void dssd::BetaGetPos(Int_t &mult, std::map<Int_t,vector<pair<pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> >,pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> > > > > &beta_event)
-{//mult is the multiplicity of beta event. map(z,vector(pair(x,y))) restore position
+{
+   //mult is the multiplicity of beta event. map(z,vector(pair(x,y))) restore position
    //information of beta decay.
    Int_t beta_x1[60], beta_x2[60], beta_ex[60], beta_nhitx;
    Int_t beta_y1[40], beta_y2[40], beta_ey[60], beta_nhity;
    Int_t ch_last, x, y;
    Int_t x1, x2, ex, y1, y2, ey;
    Double_t x0, y0, beta_x[60], beta_y[40];
-   mult=0;
-   for(Int_t z=0; z<NumDSSD; z++){
+   mult = 0;
+   for (Int_t z = 0; z < NumDSSD; z++){
       beta_nhitx = -1;
       ch_last = -2;
-      for(int i=0; i<60; i++){
+      for (int i = 0; i < 60; i++){
          beta_x[i] = 0;
          beta_ex[i] = 0;
       }
-      for(x=1; x<NumStrX-1; x++){
-         if(dssd_T_X[z][x][0]<4000 && dssd_T_X[z][x][0]>-4000 && dssd_E_X[z][x]>10){
-         // cout<<"xpos:"<<x<<" "<<z<<" "<<dssd_T_X[z][x][0] <<" "<<dssd_E_X[z][x]<<endl;
-            if(x!=ch_last+1){
-               if(beta_nhitx>=0){
-                  beta_x[beta_nhitx] = beta_x[beta_nhitx]/beta_ex[beta_nhitx];
+      for (x = 1; x < NumStrX-1; x++){
+         if (dssd_T_X[z][x][0] < 4000 && dssd_T_X[z][x][0] > -4000 && dssd_E_X[z][x] > 10){
+            if (x != ch_last + 1){
+               if (beta_nhitx >= 0){
+                  beta_x[beta_nhitx] = beta_x[beta_nhitx] / beta_ex[beta_nhitx];
                }
-               beta_nhitx ++;
+               beta_nhitx++;
                beta_ex[beta_nhitx] = dssd_E_X[z][x];
-               beta_x[beta_nhitx] = x*dssd_E_X[z][x];
+               beta_x[beta_nhitx] = x * dssd_E_X[z][x];
                beta_x1[beta_nhitx] = x;
                beta_x2[beta_nhitx] = x;
                ch_last = x;
-            }else{
+            }
+            else{
                beta_ex[beta_nhitx] = beta_ex[beta_nhitx] + dssd_E_X[z][x];
-               beta_x[beta_nhitx] = beta_x[beta_nhitx] + x*dssd_E_X[z][x];
+               beta_x[beta_nhitx] = beta_x[beta_nhitx] + x * dssd_E_X[z][x];
                beta_x2[beta_nhitx] = x;
-               ch_last ++;
+               ch_last++;
             }
          }
       }
-      if(beta_nhitx>=0){
-         beta_x[beta_nhitx] = beta_x[beta_nhitx]/beta_ex[beta_nhitx];
+      if (beta_nhitx >= 0){
+         beta_x[beta_nhitx] = beta_x[beta_nhitx] / beta_ex[beta_nhitx];
       }
       beta_nhity = -1;
       ch_last = -2;
-      for(int i=0; i<40; i++){
+      for (int i = 0; i < 40; i++){
          beta_y[i] = 0;
          beta_ey[i] = 0;
       }
-      for(y=1; y<NumStrY-1; y++){
-         if(dssd_T_Y[z][y][0]<4000 && dssd_T_Y[z][y][0]>-4000 && dssd_E_Y[z][y]>10){
-         // cout<<"ypos:"<<y<<" "<<z<<endl;
-            if(y!=ch_last+1){
-               if(beta_nhity>=0){
-                  beta_y[beta_nhity] = beta_y[beta_nhity]/beta_ey[beta_nhity];
+      for (y = 1; y < NumStrY - 1; y++){
+         if (dssd_T_Y[z][y][0] < 4000 && dssd_T_Y[z][y][0] > -4000 && dssd_E_Y[z][y] > 10){
+            if (y != ch_last + 1){
+               if (beta_nhity >= 0){
+                  beta_y[beta_nhity] = beta_y[beta_nhity] / beta_ey[beta_nhity];
                }
-               beta_nhity ++;
+               beta_nhity++;
                beta_ey[beta_nhity] = dssd_E_Y[z][y];
-               beta_y[beta_nhity] = y*dssd_E_Y[z][y];
+               beta_y[beta_nhity] = y * dssd_E_Y[z][y];
                beta_y1[beta_nhity] = y;
                beta_y2[beta_nhity] = y;
                ch_last = y;
-            }else{
+            }
+            else{
                beta_ey[beta_nhity] = beta_ey[beta_nhity] + dssd_E_Y[z][y];
-               beta_y[beta_nhity] = beta_y[beta_nhity] + y*dssd_E_Y[z][y];
+               beta_y[beta_nhity] = beta_y[beta_nhity] + y * dssd_E_Y[z][y];
                beta_y2[beta_nhity] = y;
-               ch_last ++;
+               ch_last++;
             }
          }
       }
-      if(beta_nhity>=0){
-         beta_y[beta_nhity] = beta_y[beta_nhity]/beta_ey[beta_nhity];
+      if (beta_nhity >= 0){
+         beta_y[beta_nhity] = beta_y[beta_nhity] / beta_ey[beta_nhity];
       }
 
       vector<pair<pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> >,pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> > > > beta_dssd;
-      for(int i=0; i<beta_nhitx+1; i++){
-         for(int j=0; j<beta_nhity+1; j++){
+      for (int i = 0; i < beta_nhitx + 1; i++){
+         for (int j = 0; j < beta_nhity + 1; j++){
             x0 = beta_x[i];
             x1 = beta_x1[i];
             x2 = beta_x2[i];
             ex = beta_ex[i];
-            if(z>=4){
-               ex = ex/2;
+            if (z >= 4){
+               ex /= 2;
             }
             y0 = beta_y[j];
             y1 = beta_y1[j];
             y2 = beta_y2[j];
             ey = beta_ey[j];
             Int_t fill = 1;
-            if(beta_nhitx==beta_nhity && (ey>1.1*ex+200 || ey<0.9*ex-200)){
+            if (beta_nhitx == beta_nhity && (ey>1.1*ex+200 || ey<0.9*ex-200)){
                fill = 0;
             }
-            if(fill==1)
-            {
+            if (fill == 1){
                mult++;
-               //cout<<"x1 = "<<beta_x1[i]<<", x0 = "<<beta_x[i]<<", x2 = "<<beta_x2[i]<<endl;
-               //beta_dssd.push_back(pair<pair<Int_t,Int_t>,pair<Int_t,Int_t> > ((x,ex),(y,ey) ) );
-               //  cout<<"x:"<<x1<<" "<<x2<<" "<<z<<endl;
-               //cout<<"y:"<<y1<<" "<<y2<<" "<<z<<endl;
                beta_dssd.push_back(make_pair(make_pair(make_pair(x1,x2),make_pair(x0,ex) ),make_pair(make_pair(y1,y2),make_pair(y0,ey) ) ) );
             }
          }
       }
-      if(beta_dssd.size()>0){
-         beta_event[z]=beta_dssd;
+      if (beta_dssd.size() > 0){
+         beta_event[z] = beta_dssd;
       }
    }
 }
@@ -575,35 +566,42 @@ void dssd::BetaGetPos(Int_t &mult, std::map<Int_t,vector<pair<pair<pair<Int_t,In
 
 void dssd::GetIonInfo(Long64_t entry)
 {
-  fChain->LoadTree(entry);
-  fChain->GetEntry(entry);
-  bz=dssd_Z;
-  memcpy(ionx,dssd_X,sizeof(dssd_X));
-  memcpy(iony,dssd_Y,sizeof(dssd_Y));
+    fChain->LoadTree(entry);
+    fChain->GetEntry(entry);
+    bz = dssd_Z;
+    memcpy(ionx, dssd_X, sizeof(dssd_X));
+    memcpy(iony, dssd_Y, sizeof(dssd_Y));
 
-  if(bz<0 || bz>7) { bx=-1; by=-1;}
-  if(bx==59 || bx==0 || by==0 || by==39) {bx=-1;by=-1;}
-  else{
-    bx=ionx[bz]; by=iony[bz];
-  }
-  memcpy(bnaie,NaI_E,sizeof(NaI_E));
-  memcpy(bnait,NaI_T,sizeof(NaI_T));  
-  bts=(Long64_t)EventInfo_timestamp[0];
+    if (bz < 0 || bz > 7) {
+        bx = -1;
+        by = -1;
+    }
+    if (bx == 59 || bx == 0 || by == 0 || by == 39) {
+        bx = -1;
+        by = -1;
+    }
+    else{
+        bx = ionx[bz];
+        by = iony[bz];
+    }
+    memcpy(bnaie, NaI_E, sizeof(NaI_E));
+    memcpy(bnait, NaI_T, sizeof(NaI_T));  
+    bts = (Long64_t)EventInfo_timestamp[0];
 }
 void dssd::ResetIon()
 {
-  bx=-1;
-  by=-1;
-  bz=-1;
-  bts=-1;
-  for(int i=0;i<8;i++) {
-    ionx[i]=-1;iony[i]=-1;
-  }
-  for(int i=0;i<3;i++) {
-    bnaie[i]=-1;
-    bnait[i]=-1000000;
-  }
-  
+    bx = -1;
+    by = -1;
+    bz = -1;
+    bts = -1;
+    for (int i = 0; i < 8; i++) {
+        ionx[i] = -1;
+        iony[i] = -1;
+    }
+    for (int i = 0; i < 3; i++) {
+        bnaie[i] = -1;
+        bnait[i] = -1000000;
+    }
 }
 void dssd::TreeBranch_Ion(TTree *tree)
 {
@@ -616,123 +614,126 @@ void dssd::TreeBranch_Ion(TTree *tree)
 
 void dssd::GetDecayInfo(Long64_t entry)
 { 
-   map<Int_t,vector<pair<pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> >,
+    map<Int_t,vector<pair<pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> >,
                     pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> > > > > map_beta;
-   map<Int_t,vector<pair<pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> >,
+    map<Int_t,vector<pair<pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> >,
                     pair<pair<Int_t,Int_t>,pair<Double_t,Int_t> > > > >::iterator imap_beta;
-   fChain->LoadTree(entry);
-   fChain->GetEntry(entry);
-   Int_t beta_multi;
-   BetaGetPos(beta_multi,map_beta);
-   dssd_mulhit=0;
-   int nd=0;
-   dssd_E=0;
-   for(int zz2=0; zz2<NumDSSD; zz2++){
-     dssd_fire[zz2]=0;
-     dssd_ex[zz2]=-1;
-     dssd_ey[zz2]=-1;
-     imap_beta = map_beta.find(zz2);
-     if(imap_beta != map_beta.end()){
-        dssd_fire[zz2]=1;
-        dssd_ex[zz2]=0;
-        dssd_ey[zz2]=0;
-        dssd_mulhit++;
-        for(unsigned int j=0; j<imap_beta->second.size(); j++){
-          int ex=imap_beta->second[j].first.second.second;
-          int ey=imap_beta->second[j].second.second.second;
-          dssd_ex[zz2]=dssd_ex[zz2]+ex;
-          dssd_ey[zz2]=dssd_ey[zz2]+ey;
+    fChain->LoadTree(entry);
+    fChain->GetEntry(entry);
+    Int_t beta_multi;
+    BetaGetPos(beta_multi,map_beta);
+    dssd_mulhit = 0;
+    int nd = 0;
+    dssd_E = 0;
+    for (int zz2 = 0; zz2 < NumDSSD; zz2++){
+        dssd_fire[zz2] = 0;
+        dssd_ex[zz2] = -1;
+        dssd_ey[zz2] = -1;
+        imap_beta = map_beta.find(zz2);
+        if (imap_beta != map_beta.end()){
+            dssd_fire[zz2] = 1;
+            dssd_ex[zz2] = 0;
+            dssd_ey[zz2] = 0;
+            dssd_mulhit++;
+            for(unsigned int j = 0; j < imap_beta->second.size(); j++){
+                int ex = imap_beta->second[j].first.second.second;
+                int ey = imap_beta->second[j].second.second.second;
+                dssd_ex[zz2] = dssd_ex[zz2]+ex;
+                dssd_ey[zz2] = dssd_ey[zz2]+ey;
+              }
         }
+        dssd_E += dssd_ex[zz2];
      }
-     dssd_E=dssd_E+dssd_ex[zz2];
-   }
-   if(dssd_fire[0]==1&&dssd_fire[7]==1) {
-     b.ndecayhit=0;return;
-   }
-   b.ndecayhit=0;
-   for(int zz2=0; zz2<NumDSSD; zz2++){
-     imap_beta = map_beta.find(zz2);
-     if(imap_beta != map_beta.end()){
-       for(unsigned int j=0; j<imap_beta->second.size(); j++){
-         b.z[nd]=zz2;
-         b.x1[nd]=imap_beta->second[j].first.first.first;
-         b.x2[nd]=imap_beta->second[j].first.first.second;
-         b.x[nd]=imap_beta->second[j].first.second.first;
-         b.ex[nd]=imap_beta->second[j].first.second.second;
-         b.y1[nd]=imap_beta->second[j].second.first.first;
-         b.y2[nd]=imap_beta->second[j].second.first.second;
-         b.y[nd]=imap_beta->second[j].second.second.first;
-         b.ey[nd]=imap_beta->second[j].second.second.second;
-         b.tx[nd]=(dssd_T_X[zz2][b.x1[nd]][0]+dssd_T_X[zz2][b.x2[nd]][0])/2;
-         b.ty[nd]=(dssd_T_Y[zz2][b.y1[nd]][0]+dssd_T_Y[zz2][b.y2[nd]][0])/2;
-         nd++;
-         b.ndecayhit=nd;
-       }
+     if (dssd_fire[0] == 1 && dssd_fire[7] == 1){
+        b.ndecayhit = 0;
+        return;
      }
-   }    
-   ///////////////////////////////////////////////////////////
-   nbeta=0;
-   map <Int_t,vector<pair<Int_t,Int_t> > > map_beta1;
-   map <Int_t,vector<pair<Int_t,Int_t> > >::iterator imap_beta1;
-   BetaGetPos(beta_multi,map_beta1);
-   for(int z1=0; z1<NumDSSD; z1++){
-     imap_beta1 = map_beta1.find(z1);
-     if(imap_beta1 != map_beta1.end()){
-        for(unsigned int j=0; j<imap_beta1->second.size(); j++){
-            //Int_t x1,y1;
-            //Int_t xe1,ye1;
-            //x1=imap_beta1->second[j].first;
-            //y1=imap_beta1->second[j].second;
-            //xe1=dssd_E_X[z1][x1];
-            //ye1=dssd_E_Y[z1][y1];
-            //xx[nbeta]=x1; yy[nbeta]=y1; zz[nbeta]=z1;
-            //xxe[nbeta]=xe1; yye[nbeta]=ye1;
-            if(nbeta>16)cout<<nbeta<<endl; 
-        }
-        nbeta++;
+     b.ndecayhit = 0;
+     for (int zz2 = 0; zz2 < NumDSSD; zz2++){
+         imap_beta = map_beta.find(zz2);
+         if (imap_beta != map_beta.end()){
+             for (unsigned int j = 0; j < imap_beta->second.size(); j++){
+                 b.z[nd] = zz2;
+                 b.x1[nd] = imap_beta->second[j].first.first.first;
+                 b.x2[nd] = imap_beta->second[j].first.first.second;
+                 b.x[nd] = imap_beta->second[j].first.second.first;
+                 b.ex[nd] = imap_beta->second[j].first.second.second;
+                 b.y1[nd] = imap_beta->second[j].second.first.first;
+                 b.y2[nd] = imap_beta->second[j].second.first.second;
+                 b.y[nd] = imap_beta->second[j].second.second.first;
+                 b.ey[nd] = imap_beta->second[j].second.second.second;
+                 b.tx[nd] = (dssd_T_X[zz2][b.x1[nd]][0]+dssd_T_X[zz2][b.x2[nd]][0])/2;
+                 b.ty[nd] = (dssd_T_Y[zz2][b.y1[nd]][0]+dssd_T_Y[zz2][b.y2[nd]][0])/2;
+                 nd++;
+                 b.ndecayhit = nd;
+             }
+         }
+     }    
+     ///////////////////////////////////////////////////////////
+     nbeta = 0;
+     map <Int_t,vector<pair<Int_t,Int_t> > > map_beta1;
+     map <Int_t,vector<pair<Int_t,Int_t> > >::iterator imap_beta1;
+     BetaGetPos(beta_multi,map_beta1);
+     for (int z1 = 0; z1 < NumDSSD; z1++){
+         imap_beta1 = map_beta1.find(z1);
+         if (imap_beta1 != map_beta1.end()){
+             for (unsigned int j = 0; j < imap_beta1->second.size(); j++){
+                 //Int_t x1,y1;
+                 //Int_t xe1,ye1;
+                 //x1=imap_beta1->second[j].first;
+                 //y1=imap_beta1->second[j].second;
+                 //xe1=dssd_E_X[z1][x1];
+                 //ye1=dssd_E_Y[z1][y1];
+                 //xx[nbeta]=x1; yy[nbeta]=y1; zz[nbeta]=z1;
+                 //xxe[nbeta]=xe1; yye[nbeta]=ye1;
+                 if (nbeta > 16) cout<<nbeta<<endl; 
+             }
+             nbeta++;
+         }
      }
-   
-   }
-  qbetae=Qbeta_E; qbetat=Qbeta_T;
-  qvetoe=Qveto_E; qvetot=Qveto_T;
-  memcpy(naie,NaI_E,sizeof(NaI_E));
-  memcpy(nait,NaI_T,sizeof(NaI_T)); 
-   ts=(Long64_t)EventInfo_timestamp[0]; 
+     qbetae = Qbeta_E;
+     qbetat = Qbeta_T;
+     qvetoe = Qveto_E;
+     qvetot = Qveto_T;
+     memcpy(naie,NaI_E,sizeof(NaI_E));
+     memcpy(nait,NaI_T,sizeof(NaI_T)); 
+     ts = (Long64_t)EventInfo_timestamp[0]; 
 }
 
 void dssd::ResetDecay()
 {
-
-  ts=-1; 
-  nbeta=0; 
-  b.ndecayhit=0;
-  dssd_mulhit=0;
-  for(int i=0;i<NumDSSD;i++) {
-    dssd_fire[i]=0;
-    dssd_ex[i]=0;
-    dssd_ey[i]=0;
-  }
-  dssd_E=0;    
-  for(int i=0;i<3;i++) {
-    naie[i]=-1;nait[i]=-100000;
-  }
-  qbetae=-1;qvetoe=-1;
-  qbetat=-100000;qvetoe=-100000;
- 
+    ts = -1; 
+    nbeta = 0; 
+    b.ndecayhit = 0;
+    dssd_mulhit = 0;
+    for(int i = 0; i < NumDSSD; i++) {
+        dssd_fire[i] = 0;
+        dssd_ex[i] = 0;
+        dssd_ey[i] = 0;
+    }
+    dssd_E = 0;    
+    for(int i = 0; i < 3; i++) {
+        naie[i] = -1;
+        nait[i] = -100000;
+    }
+    qbetae = -1;
+    qvetoe = -1;
+    qbetat = -100000;
+    qvetoe = -100000;
 }
 void dssd::TreeBranch_Decay(TTree *tree)
 {
-   tree->Branch("ts",&ts,"ts/L");
-   tree->Branch("ndecayhit",&b.ndecayhit,"ndecayhit/I");
-   tree->Branch("x1",&b.x1,"x1[ndecayhit]/I");
-   tree->Branch("x2",&b.x2,"x2[ndecayhit]/I");
-   tree->Branch("ex",&b.ex,"ex[ndecayhit]/I");
-   tree->Branch("x", &b.x,"x[ndecayhit]/D");
-   tree->Branch("y1",&b.y1,"y1[ndecayhit]/I");
-   tree->Branch("y2",&b.y2,"y2[ndecayhit]/I");
-   tree->Branch("ey",&b.ey,"ey[ndecayhit]/I");
-   tree->Branch("y", &b.y,"y[ndecayhit]/D");
-   tree->Branch("z", &b.z,"z[ndecayhit]/I");
+    tree->Branch("ts",&ts,"ts/L");
+    tree->Branch("ndecayhit",&b.ndecayhit,"ndecayhit/I");
+    tree->Branch("x1",&b.x1,"x1[ndecayhit]/I");
+    tree->Branch("x2",&b.x2,"x2[ndecayhit]/I");
+    tree->Branch("ex",&b.ex,"ex[ndecayhit]/I");
+    tree->Branch("x", &b.x,"x[ndecayhit]/D");
+    tree->Branch("y1",&b.y1,"y1[ndecayhit]/I");
+    tree->Branch("y2",&b.y2,"y2[ndecayhit]/I");
+    tree->Branch("ey",&b.ey,"ey[ndecayhit]/I");
+    tree->Branch("y", &b.y,"y[ndecayhit]/D");
+    tree->Branch("z", &b.z,"z[ndecayhit]/I");
 }
 
 #endif // #ifdef dssd_cxx
